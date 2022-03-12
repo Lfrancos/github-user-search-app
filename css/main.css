@@ -254,6 +254,16 @@ p {
           align-items: center;
 }
 
+.header--active .header__scheme__button--light {
+  display: none;
+}
+
+.header--active .header__scheme__button--dark {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .header__scheme__button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -276,6 +286,10 @@ p {
 .header__scheme__button:hover {
   border-radius: 1rem;
   border: 1px solid #2a3341;
+}
+
+.header__scheme__button--dark {
+  display: none;
 }
 
 .search-bar {
@@ -302,18 +316,34 @@ p {
   transition: all 250ms ease-out;
 }
 
-.search-bar__content-1 {
+.search-bar__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 1rem;
+}
+
+.search-bar__content h3 {
+  display: none;
+  color: #F74646;
+  font-weight: bold;
+}
+
+.search-bar__content h3.active {
+  display: block;
 }
 
 .search-bar__img {
   width: 20px;
   height: 20px;
+}
+
+.search-bar form {
+  background: transparent;
+  fill: none;
 }
 
 .search-bar__input {
@@ -325,6 +355,7 @@ p {
   padding: .5rem;
   font-size: 13px;
   color: var(--color-text);
+  fill: none;
 }
 
 .search-bar__input::-webkit-input-placeholder {
@@ -344,11 +375,21 @@ p {
 }
 
 .search-bar__input:focus {
+  fill: none;
   outline: none;
   background-color: transparent;
 }
 
 .search-bar__input:active {
+  fill: none;
+  background-color: transparent;
+}
+
+.search-bar__input:current {
+  background-color: transparent;
+}
+
+.search-bar__input::content {
   background-color: transparent;
 }
 
@@ -392,6 +433,7 @@ p {
 }
 
 .card__profile-info__img {
+  min-width: 70px;
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -448,7 +490,35 @@ p {
   height: 0.8594rem;
 }
 
-.dark {
-  display: none;
+@media screen and (min-width: 500px) {
+  .card__profile-info__img {
+    min-width: 117px;
+    width: 117px;
+    height: 117px;
+  }
+  .card__social-media {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .card__profile-info {
+    margin-bottom: 0px;
+  }
+  .card__profile-info__container {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .card__info {
+    margin-left: 133px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -63,11 +63,21 @@ p {
 
 }
 
+
 .header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &--active {
+        .header__scheme__button--light {
+            display: none;
+        }
+        .header__scheme__button--dark {
+            display: flex;
+        }
+    }
 
     &__scheme {
 
@@ -85,12 +95,22 @@ p {
                 font-weight: 700;
                 letter-spacing: .2rem;
             }
+
+
+
             &:hover {
                 // color: var(--color-button);
                 // background-color: $color-light-dark-gray;
                 border-radius: $border-1;
                 border: 1px solid $color-light-dark-gray;
             }
+
+
+            &--dark {
+                display: none;
+            }
+
+
 
         }
     }
@@ -110,10 +130,24 @@ p {
     padding-left: 1.5rem;
     transition: all 250ms ease-out;
 
-    &__content-1 {
+    &__content {
         display: flex;
         align-items: center;
+        gap: 1rem;
+
+        & h3 {
+            display: none;
+            color: #F74646;
+            font-weight: bold;
+            &.active {
+                display: block;
+            }
+        }
+
+
+
     }
+
     &__img {
         width: 20px;
         height: 20px;
@@ -121,6 +155,10 @@ p {
         // top: 50%;
         // // left: 50%;
         // transform: translate(5px, -50%);
+    }
+    form {
+        background: transparent;
+        fill: none;
     }
     &__input {
         // margin-left: 2.3rem;
@@ -130,14 +168,23 @@ p {
         padding: .5rem;
         font-size: 13px;
         color: var(--color-text);
+        fill: none;
         &::placeholder {
             color: var(--color-text);
         }
         &:focus {
+            fill: none;
             outline: none;
             background-color: transparent;
         }
         &:active {
+            fill: none;
+            background-color: transparent;
+        }
+        &:current {
+            background-color: transparent;
+        }
+        &::content {
             background-color: transparent;
         }
     }
@@ -173,6 +220,8 @@ p {
         gap: 1rem;
         margin-bottom: 2rem;
         &__img {
+
+            min-width: 70px;
             width: 70px;
             height: 70px;
             border-radius: 50%;
@@ -201,6 +250,7 @@ p {
         }
     }
     &__social-media {
+
         &__item {
             display: flex;
             align-items: center;
@@ -215,6 +265,37 @@ p {
     }
 }
 
-.dark {
-    display: none;
+@media screen and (min-width: 500px) {
+    .card {
+        &__profile-info {
+            &__img {
+                min-width: 117px;
+                width: 117px;
+                height: 117px;
+            }
+        }
+        &__social-media {
+            display: flex;
+            gap : 3rem;
+        }
+    }
 }
+
+@media screen and (min-width: 800px) {
+    .card {
+        &__profile-info {
+            margin-bottom: 0px;
+            &__container {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        &__info {
+            margin-left: 133px;
+        }
+    }
+}
+
+
+
