@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+
+$font: 'Space Mono', monospace;
+
+// colors
+
+$color-blue: hsl(212%, 100%, 50%);
+$color-blue-hover: hsl(212%, 100%, 60%);
+$color-white: hsl(0°, 0%, 100%);
+
+/////////// Light colors //////////////////
+
+$color-light-gray-blue: hsl(217%, 20%, 51%);
+$color-light-desaturated-blue: hsl(217%, 35%, 45%);
+$color-light-dark-gray: hsl(217%, 21%, 21%);
+$color-light-gray: hsl(227%, 100%, 98%);
+
+//////////// Dark colors ///////////////////
+
+$color-dark-blue: hsl(222%, 41%, 20%);
+$color-dark-gray: hsl(220°, 40%, 13%);
+
+
+
+// border radius
+
+$border-1: 1rem;
+
+
+// box shadow
+
+$box-shadow-1: 0 30px 30px -5px hsla(217%, 21%, 61%,.3),
+               0 10px 50px -10px hsla(217%, 21%, 71%, .1) ;
+
+
+
+
+
+

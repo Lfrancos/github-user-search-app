@@ -3,26 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/script.js" defer></script>
   <title>Frontend Mentor | GitHub user search app</title>
 </head>
 <body>
 
-  devfinder
+  <main>
+    <header class="header">
+      <h1 class="header__title">devfinder</h1>
+      <div class="header__scheme">
 
-  Light
-  Dark
+        <button class="header__scheme__button dark">
+          <h4>Light</h4>
+          <img src="./assets/icon-sun.svg" alt="">
+        </button>
+        <button class="header__scheme__button  light">
+          <h4>Dark</h4>
+          <img src="./assets/icon-moon.svg" alt="">
+        </button>
+      </div>
+    </header>
+    <a href=""></a>
 
-  Search GitHub username...
-  Search
 
-  Joined
 
-  Repos
-  Followers
-  Following
+    <!-- search bar -->
+
+    <form class="search-bar">
+      <div class="search-bar__content-1">
+        <img src="./assets/icon-search.svg" class="search-bar__img" alt="">
+        <input type="text" id="search" name="search" placeholder="Search GitHub username..." class="search-bar__input">
+      </div>
+      <button type="submit" class="search-bar__button" >Search</button>
+    </form>
+
+
+
+    <!-- card -->
+
+    <div class="card">
+      <!-- <div class="card__profile-info">
+        <div class="card__profile-info__img">
+          <img src="" alt="">
+        </div>
+        <div class="card__profile-info__container">
+          <div class="card__profile-info__name">
+            <h2 class="name"></h2>
+            <h4 class="at"></h4>
+          </div>
+          <p class="card__profile-info__date">Joined</p>
+        </div>
+      </div>
+      <div class="card__about"></div>
+      <div class="card__stats ">
+        <div class="card__stats__repos">
+          <P>Repos</P>
+          <h2></h2>
+        </div>
+        <div class="card__stats__followers">
+          <p>Followers</p>
+          <h2></h2>
+        </div>
+        <div class="card__stats__following">
+          <p>following</p>
+          <h2></h2>
+        </div>
+      </div>
+      <div class="card__social-media">
+        <div class="card__social-media__item location">
+          <img src="./assets/icon-location.svg" alt="">
+          <p></p>
+        </div>
+        <div class="card__social-media__item web">
+          <img src="./assets/icon-website.svg" alt="">
+          <p></p>
+        </div>
+        <div class="card__social-media__item twitter">
+          <img src="./assets/icon-twitter.svg" alt="">
+          <p></p>
+        </div>
+        <div class="card__social-media__item company">
+          <img src="./assets/icon-company.svg" alt="">
+          <p></p>
+        </div>
+      </div> -->
+    </div>
+
+
+
+
+  </main>
 
 </body>
 </html>
