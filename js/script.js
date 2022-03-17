@@ -24,7 +24,7 @@ async function getData() {
         const response = await fetch(urlToFetch);
         if (response.ok) {
             const jsonResponse = await response.json();
-            // console.log(jsonResponse);
+            console.log(jsonResponse);
             return jsonResponse;
         }
     } catch (error) {
@@ -59,7 +59,17 @@ searchBar.addEventListener('submit', e => {
 
 function renderData(data) {
 
-    const {avatar_url, name, login, bio, public_repos, followers, following, location, blog, twitter_username, company, html_url} = data;
+    const {avatar_url, created_at, name, login, bio, public_repos, followers, following, location, blog, twitter_username, company, html_url} = data;
+
+    const fullDate = new Date(created_at);
+    const stringDate = fullDate.toString().split(' ');
+    console.log(stringDate);
+    const date = `${stringDate[2]} ${stringDate[1]} ${stringDate[3]}`
+    // const newDate = date.split(' ');
+    // console.log(newDate);
+
+
+
 
     // /////////////////////////////
     cardContainer.innerHTML =
@@ -74,7 +84,7 @@ function renderData(data) {
               <h2 class="name">${name}</h2>
               <a href="${html_url}" target="_blank"><h3 class="at">@${login}</h3></a>
             </div>
-            <p class="card__profile-info__date">Joined</p>
+            <p class="card__profile-info__date">Joined ${date}</p>
           </div>
         </div>
         <div class="card__info">
