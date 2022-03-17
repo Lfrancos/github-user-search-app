@@ -7,7 +7,6 @@ const searchBarInput = document.querySelector('.search-bar__input');
 const cardContainer = document.querySelector('.card-container');
 const body = document.querySelector('body');
 
-console.log(window.matchMedia('(prefers-color-scheme: dark'));
 
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     body.classList.add('lightMode')
@@ -24,12 +23,11 @@ async function getData() {
         const response = await fetch(urlToFetch);
         if (response.ok) {
             const jsonResponse = await response.json();
-            console.log(jsonResponse);
             return jsonResponse;
         }
     } catch (error) {
 
-        // console.log(error);
+        console.log(error);
     }
 }
 
@@ -41,17 +39,13 @@ searchBar.addEventListener('submit', e => {
 
     } else {
         e.preventDefault();
-        // clearInfo();
-        // render info
         getData().then( data => {
           const errorMessage = document.querySelector('.search-bar__content.two h3')
           errorMessage.classList.remove('active');
             renderData(data);
         }).catch(error => {
-          // removeData();
           const errorMessage = document.querySelector('.search-bar__content.two h3')
           errorMessage.classList.add('active');
-          // console.log(errorMessage);
         });
     }
 
@@ -63,10 +57,7 @@ function renderData(data) {
 
     const fullDate = new Date(created_at);
     const stringDate = fullDate.toString().split(' ');
-    console.log(stringDate);
     const date = `${stringDate[2]} ${stringDate[1]} ${stringDate[3]}`
-    // const newDate = date.split(' ');
-    // console.log(newDate);
 
 
 
