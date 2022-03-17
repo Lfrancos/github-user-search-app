@@ -57,6 +57,7 @@ Users should be able to:
 
 This was a really interesting challenge. I practice a little bit more about error handling, also I'm starting o understand a little better callbacks :) that is exiting.
 It was really interesting to have to create color themes, I approached it as I was used to and realized that that is not the way to do it. By creating variables that can change with javascript is way better.
+I really liked "prefers-color-scheme" I'm missing that it changes automatically :( right now if you change your preferences you would need to reload the page. I don't feel that is the best way, it should be changing automatically I think but for now I think it was a good thing to learn. 
 
 ### Continued development
 

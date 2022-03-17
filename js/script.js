@@ -5,6 +5,15 @@ const searchBar = document.querySelector('.search-bar');
 const searchBarInput = document.querySelector('.search-bar__input');
 // const profileImg = document.querySelector('.card__profile-info__img');
 const cardContainer = document.querySelector('.card-container');
+const body = document.querySelector('body');
+
+console.log(window.matchMedia('(prefers-color-scheme: dark'));
+
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    body.classList.add('lightMode')
+  } else {
+    body.classList.remove('lightMode')
+  }
 
 
 async function getData() {
@@ -129,7 +138,7 @@ function removeData() {
 
 schemeButtons.forEach(button => {
     button.addEventListener('click', e => {
-      const body = document.querySelector('body');
+
       body.classList.toggle('lightMode');
       const container = e.currentTarget.closest('.header');
       container.classList.toggle('header--active');
