@@ -3,11 +3,10 @@
 const schemeButtons = document.querySelectorAll('.header__scheme__button');
 const searchBar = document.querySelector('.search-bar');
 const searchBarInput = document.querySelector('.search-bar__input');
-// const profileImg = document.querySelector('.card__profile-info__img');
 const cardContainer = document.querySelector('.card-container');
 const body = document.querySelector('body');
 
-
+// make sure to add the right color scheme depending on the preferences the user has setup in their computer.
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     body.classList.add('lightMode')
   } else {
@@ -15,23 +14,33 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
   }
 
 
+// get the data from the api of github;
 async function getData() {
-    const url = 'https://api.github.com/users/'
-    const username = searchBarInput.value;
-    const urlToFetch = `${url}${username}`;
-    try {
-        const response = await fetch(urlToFetch);
-        if (response.ok) {
-            const jsonResponse = await response.json();
-            return jsonResponse;
-        }
-    } catch (error) {
+  const url = 'https://api.github.com/users/';
+  let urlToFetch = `${url}lfrancos`;
+  const username = searchBarInput.value;
 
-        console.log(error);
-    }
+  if (cardContainer.firstElementChild) {
+    urlToFetch = `${url}${username}`;
+  }
+
+  try {
+      const response = await fetch(urlToFetch);
+      if (response.ok) {
+          const jsonResponse = await response.json();
+          return jsonResponse;
+      }
+  } catch (error) {
+      console.log(error);
+  }
 }
 
+getData().then(data => {
+  renderData(data);
+})
 
+
+// functionality for the search bar
 searchBar.addEventListener('submit', e => {
 
     if (searchBarInput.value.length <= 0) {
@@ -51,6 +60,7 @@ searchBar.addEventListener('submit', e => {
 
 });
 
+// this adds the data to the page
 function renderData(data) {
 
     const {avatar_url, created_at, name, login, bio, public_repos, followers, following, location, blog, twitter_username, company, html_url} = data;
@@ -58,8 +68,6 @@ function renderData(data) {
     const fullDate = new Date(created_at);
     const stringDate = fullDate.toString().split(' ');
     const date = `${stringDate[2]} ${stringDate[1]} ${stringDate[3]}`
-
-
 
 
     // /////////////////////////////
@@ -126,64 +134,15 @@ function renderData(data) {
 function removeData() {
   cardContainer.innerHTML = '';
 }
-// function clearInfo() {
-//     const profileImg = document.querySelector('.card__profile-info__img');
-//     if (profileImg) {
-//         const profileImage = profileImg.firstChild;
-//         profileImage.remove();
-//         const about = document.querySelector('.card__about p');
-//         about.remove();
-//     }
-// }
 
-
+// this is the event listener for the color scheme
 schemeButtons.forEach(button => {
     button.addEventListener('click', e => {
 
       body.classList.toggle('lightMode');
       const container = e.currentTarget.closest('.header');
       container.classList.toggle('header--active');
-      // console.log(container);
-      // header--active
-      // console.log(body);
         e.stopPropagation();
 
-        // console.log(e.currentTarget);
-        // console.log('clicked');
     })
 })
-
-
-
-
-
-
-    // render the profile info {
-
-        // console.log(name, bio, followers, following );
-        // const img = document.createElement('img');
-        // const profileImage = avatar_url;
-        // const profileInfoName = document.querySelector('.card__profile-info__name .name');
-        // const profileInfoAt = document.querySelector('.card__profile-info__name .at')
-        // profileInfoName.innerText = name;
-        // profileInfoAt.innerText = `@${data.login.toLowerCase()}`;
-        // img.src = profileImage;
-        // profileImg.appendChild(img);
-
-        // // render the about
-        // const about = document.querySelector('.card__about');
-        // const p = document.createElement('p');
-        // p.innerText = bio;
-        // about.appendChild(p);
-
-        // // render the stats
-        // const reposStats = document.querySelector('.card__stats__repos h2');
-        // reposStats.innerText = public_repos;
-        // const followersStats = document.querySelector('.card__stats__followers h2');
-        // followersStats.innerText = followers;
-        // const followingStats = document.querySelector('.card__stats__following h2');
-        // followingStats.innerText = following;
-
-
-        // render the social media
-    // }
